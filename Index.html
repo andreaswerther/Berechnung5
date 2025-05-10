@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Physik-Rechenquiz – Experte</title>
+  <style>
+    body { font-family: sans-serif; background: #eef; padding: 20px; }
+    .frage { background: white; padding: 15px; margin-bottom: 20px; border-radius: 6px; }
+    .formelfeld { border: 2px dashed #666; padding: 10px; min-height: 30px; margin: 10px 0; background: #fff; font-size: 18px; }
+    button { margin: 4px; font-size: 16px; }
+    input[type='text'] { padding: 5px; width: 160px; }
+    .feedback { font-weight: bold; margin-top: 10px; }
+  </style>
+</head>
+<body>
+<h1>Physik-Rechenquiz – Experte</h1>
+<p>Du hast die Wahl komplexer Formeln. Klicke sie zusammen, gib das Ergebnis ein – und lerne bei Fehlern gezielt nach.</p>
+
+<div class="frage">
+  <p><strong>Aufgabe 1</strong><br><em>Gegeben:</em> E = 360 J, t = 12 s<br><em>Gesucht:</em> Leistung</p>
+
+  <p>1. Gesuchter Formelbuchstabe:</p>
+  <input type="text" id="eingabe1">
+  <p class="feedback" id="feedbackGesucht1"></p>
+
+  <p>2. Formel zusammenklicken:</p>
+  <div><button onclick="addToFormula('U', 'formel1')">U</button>
+<button onclick="addToFormula('=', 'formel1')">=</button>
+<button onclick="addToFormula('R', 'formel1')">R</button>
+<button onclick="addToFormula('·', 'formel1')">·</button>
+<button onclick="addToFormula('I', 'formel1')">I</button>
+<button onclick="addToFormula('+', 'formel1')">+</button>
+<button onclick="addToFormula('/', 'formel1')">/</button>
+<button onclick="addToFormula('P', 'formel1')">P</button>
+<button onclick="addToFormula('t', 'formel1')">t</button>
+<button onclick="addToFormula('Q', 'formel1')">Q</button>
+<button onclick="addToFormula('E', 'formel1')">E</button>
+<button onclick="addToFormula('²', 'formel1')">²</button>
+<button onclick="addToFormula('^', 'formel1')">^</button>
+<button onclick="addToFormula('√', 'formel1')">√</button>
+<button onclick="addToFormula('(', 'formel1')">(</button>
+<button onclick="addToFormula(')', 'formel1')">)</button>
+<button onclick="addToFormula('.', 'formel1')">.</button>
+<button onclick="addToFormula(',', 'formel1')">,</button></div>
+  <div id="formel1" class="formelfeld"></div>
+  <button onclick="resetFormula('formel1')">Formel zurücksetzen</button>
+  <button onclick="checkFormel(1)">Formel prüfen</button>
+  <p class="feedback" id="feedbackFormel1"></p>
+
+  <p>3. Ergebnis eingeben:</p>
+  <input type="text" id="ergebnis1">
+  <button onclick="checkErgebnis(1)">Antwort prüfen</button>
+  <p class="feedback" id="feedbackErgebnis1"></p>
+</div>
+
+<div class="frage">
+  <p><strong>Aufgabe 2</strong><br><em>Gegeben:</em> P = 80 W, R = 20 Ohm<br><em>Gesucht:</em> Stromstärke</p>
+
+  <p>1. Gesuchter Formelbuchstabe:</p>
+  <input type="text" id="eingabe2">
+  <p class="feedback" id="feedbackGesucht2"></p>
+
+  <p>2. Formel zusammenklicken:</p>
+  <div><button onclick="addToFormula('U', 'formel2')">U</button>
+<button onclick="addToFormula('=', 'formel2')">=</button>
+<button onclick="addToFormula('R', 'formel2')">R</button>
+<button onclick="addToFormula('·', 'formel2')">·</button>
+<button onclick="addToFormula('I', 'formel2')">I</button>
+<button onclick="addToFormula('+', 'formel2')">+</button>
+<button onclick="addToFormula('/', 'formel2')">/</button>
+<button onclick="addToFormula('P', 'formel2')">P</button>
+<button onclick="addToFormula('t', 'formel2')">t</button>
+<button onclick="addToFormula('Q', 'formel2')">Q</button>
+<button onclick="addToFormula('E', 'formel2')">E</button>
+<button onclick="addToFormula('²', 'formel2')">²</button>
+<button onclick="addToFormula('^', 'formel2')">^</button>
+<button onclick="addToFormula('√', 'formel2')">√</button>
+<button onclick="addToFormula('(', 'formel2')">(</button>
+<button onclick="addToFormula(')', 'formel2')">)</button>
+<button onclick="addToFormula('.', 'formel2')">.</button>
+<button onclick="addToFormula(',', 'formel2')">,</button></div>
+  <div id="formel2" class="formelfeld"></div>
+  <button onclick="resetFormula('formel2')">Formel zurücksetzen</button>
+  <button onclick="checkFormel(2)">Formel prüfen</button>
+  <p class="feedback" id="feedbackFormel2"></p>
+
+  <p>3. Ergebnis eingeben:</p>
+  <input type="text" id="ergebnis2">
+  <button onclick="checkErgebnis(2)">Antwort prüfen</button>
+  <p class="feedback" id="feedbackErgebnis2"></p>
+</div>
+
+<div class="frage">
+  <p><strong>Aufgabe 3</strong><br><em>Gegeben:</em> P = 180 W, R = 10 Ohm<br><em>Gesucht:</em> Spannung</p>
+
+  <p>1. Gesuchter Formelbuchstabe:</p>
+  <input type="text" id="eingabe3">
+  <p class="feedback" id="feedbackGesucht3"></p>
+
+  <p>2. Formel zusammenklicken:</p>
+  <div><button onclick="addToFormula('U', 'formel3')">U</button>
+<button onclick="addToFormula('=', 'formel3')">=</button>
+<button onclick="addToFormula('R', 'formel3')">R</button>
+<button onclick="addToFormula('·', 'formel3')">·</button>
+<button onclick="addToFormula('I', 'formel3')">I</button>
+<button onclick="addToFormula('+', 'formel3')">+</button>
+<button onclick="addToFormula('/', 'formel3')">/</button>
+<button onclick="addToFormula('P', 'formel3')">P</button>
+<button onclick="addToFormula('t', 'formel3')">t</button>
+<button onclick="addToFormula('Q', 'formel3')">Q</button>
+<button onclick="addToFormula('E', 'formel3')">E</button>
+<button onclick="addToFormula('²', 'formel3')">²</button>
+<button onclick="addToFormula('^', 'formel3')">^</button>
+<button onclick="addToFormula('√', 'formel3')">√</button>
+<button onclick="addToFormula('(', 'formel3')">(</button>
+<button onclick="addToFormula(')', 'formel3')">)</button>
+<button onclick="addToFormula('.', 'formel3')">.</button>
+<button onclick="addToFormula(',', 'formel3')">,</button></div>
+  <div id="formel3" class="formelfeld"></div>
+  <button onclick="resetFormula('formel3')">Formel zurücksetzen</button>
+  <button onclick="checkFormel(3)">Formel prüfen</button>
+  <p class="feedback" id="feedbackFormel3"></p>
+
+  <p>3. Ergebnis eingeben:</p>
+  <input type="text" id="ergebnis3">
+  <button onclick="checkErgebnis(3)">Antwort prüfen</button>
+  <p class="feedback" id="feedbackErgebnis3"></p>
+</div>
+
+<div class="frage">
+  <p><strong>Aufgabe 4</strong><br><em>Gegeben:</em> U = 12 V, R = 3 Ohm, t = 2 s<br><em>Gesucht:</em> Energie</p>
+
+  <p>1. Gesuchter Formelbuchstabe:</p>
+  <input type="text" id="eingabe4">
+  <p class="feedback" id="feedbackGesucht4"></p>
+
+  <p>2. Formel zusammenklicken:</p>
+  <div><button onclick="addToFormula('U', 'formel4')">U</button>
+<button onclick="addToFormula('=', 'formel4')">=</button>
+<button onclick="addToFormula('R', 'formel4')">R</button>
+<button onclick="addToFormula('·', 'formel4')">·</button>
+<button onclick="addToFormula('I', 'formel4')">I</button>
+<button onclick="addToFormula('+', 'formel4')">+</button>
+<button onclick="addToFormula('/', 'formel4')">/</button>
+<button onclick="addToFormula('P', 'formel4')">P</button>
+<button onclick="addToFormula('t', 'formel4')">t</button>
+<button onclick="addToFormula('Q', 'formel4')">Q</button>
+<button onclick="addToFormula('E', 'formel4')">E</button>
+<button onclick="addToFormula('²', 'formel4')">²</button>
+<button onclick="addToFormula('^', 'formel4')">^</button>
+<button onclick="addToFormula('√', 'formel4')">√</button>
+<button onclick="addToFormula('(', 'formel4')">(</button>
+<button onclick="addToFormula(')', 'formel4')">)</button>
+<button onclick="addToFormula('.', 'formel4')">.</button>
+<button onclick="addToFormula(',', 'formel4')">,</button></div>
+  <div id="formel4" class="formelfeld"></div>
+  <button onclick="resetFormula('formel4')">Formel zurücksetzen</button>
+  <button onclick="checkFormel(4)">Formel prüfen</button>
+  <p class="feedback" id="feedbackFormel4"></p>
+
+  <p>3. Ergebnis eingeben:</p>
+  <input type="text" id="ergebnis4">
+  <button onclick="checkErgebnis(4)">Antwort prüfen</button>
+  <p class="feedback" id="feedbackErgebnis4"></p>
+</div>
+
+<div class="frage">
+  <p><strong>Aufgabe 5</strong><br><em>Gegeben:</em> P = 100 W, U = 20 V<br><em>Gesucht:</em> Widerstand</p>
+
+  <p>1. Gesuchter Formelbuchstabe:</p>
+  <input type="text" id="eingabe5">
+  <p class="feedback" id="feedbackGesucht5"></p>
+
+  <p>2. Formel zusammenklicken:</p>
+  <div><button onclick="addToFormula('U', 'formel5')">U</button>
+<button onclick="addToFormula('=', 'formel5')">=</button>
+<button onclick="addToFormula('R', 'formel5')">R</button>
+<button onclick="addToFormula('·', 'formel5')">·</button>
+<button onclick="addToFormula('I', 'formel5')">I</button>
+<button onclick="addToFormula('+', 'formel5')">+</button>
+<button onclick="addToFormula('/', 'formel5')">/</button>
+<button onclick="addToFormula('P', 'formel5')">P</button>
+<button onclick="addToFormula('t', 'formel5')">t</button>
+<button onclick="addToFormula('Q', 'formel5')">Q</button>
+<button onclick="addToFormula('E', 'formel5')">E</button>
+<button onclick="addToFormula('²', 'formel5')">²</button>
+<button onclick="addToFormula('^', 'formel5')">^</button>
+<button onclick="addToFormula('√', 'formel5')">√</button>
+<button onclick="addToFormula('(', 'formel5')">(</button>
+<button onclick="addToFormula(')', 'formel5')">)</button>
+<button onclick="addToFormula('.', 'formel5')">.</button>
+<button onclick="addToFormula(',', 'formel5')">,</button></div>
+  <div id="formel5" class="formelfeld"></div>
+  <button onclick="resetFormula('formel5')">Formel zurücksetzen</button>
+  <button onclick="checkFormel(5)">Formel prüfen</button>
+  <p class="feedback" id="feedbackFormel5"></p>
+
+  <p>3. Ergebnis eingeben:</p>
+  <input type="text" id="ergebnis5">
+  <button onclick="checkErgebnis(5)">Antwort prüfen</button>
+  <p class="feedback" id="feedbackErgebnis5"></p>
+</div>
+<script>
+function addToFormula(zeichen, feldID) {
+  const el = document.getElementById(feldID);
+  el.textContent += zeichen;
+}
+function resetFormula(feldID) {
+  document.getElementById(feldID).textContent = '';
+}
+
+function checkFormel(1) {
+  const feld = document.getElementById("formel1").textContent;
+  if (feld === "P=E/t") {
+    document.getElementById("feedbackFormel1").textContent = "Richtig!";
+    document.getElementById("feedbackFormel1").style.color = "green";
+  } else {
+    document.getElementById("feedbackFormel1").innerHTML = "Falsch. <a href='https://www.youtube.com/watch?v=Eq2tZdJ7NAM' target='_blank'>Hier kannst du dein Wissen auffrischen</a>";
+    document.getElementById("feedbackFormel1").style.color = "red";
+  }
+}
+
+function checkErgebnis(1) {
+  const val = document.getElementById("ergebnis1").value.toLowerCase().replace(/\s+/g, '').replace(',', '.');
+  if (val === "30" || val === "30w" || val === "30 w" || val === "30watt" || val === "30 watt") {
+    document.getElementById("feedbackErgebnis1").textContent = "Richtig!";
+    document.getElementById("feedbackErgebnis1").style.color = "green";
+  } else {
+    document.getElementById("feedbackErgebnis1").textContent = "Leider nicht korrekt.";
+    document.getElementById("feedbackErgebnis1").style.color = "red";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("eingabe1").addEventListener("input", function() {
+    const val = this.value.trim();
+    if (val === "P") {
+      document.getElementById("feedbackGesucht1").textContent = "Richtig!";
+      document.getElementById("feedbackGesucht1").style.color = "green";
+    } else {
+      document.getElementById("feedbackGesucht1").textContent = "Falsch. Gesucht ist: P";
+      document.getElementById("feedbackGesucht1").style.color = "red";
+    }
+  });
+});
+
+function checkFormel(2) {
+  const feld = document.getElementById("formel2").textContent;
+  if (feld === "I=√(P/R)") {
+    document.getElementById("feedbackFormel2").textContent = "Richtig!";
+    document.getElementById("feedbackFormel2").style.color = "green";
+  } else {
+    document.getElementById("feedbackFormel2").innerHTML = "Falsch. <a href='https://www.youtube.com/watch?v=6lCkF6_v2Ik' target='_blank'>Hier kannst du dein Wissen auffrischen</a>";
+    document.getElementById("feedbackFormel2").style.color = "red";
+  }
+}
+
+function checkErgebnis(2) {
+  const val = document.getElementById("ergebnis2").value.toLowerCase().replace(/\s+/g, '').replace(',', '.');
+  if (val === "2" || val === "2a" || val === "2 a" || val === "2ampere" || val === "2 ampere") {
+    document.getElementById("feedbackErgebnis2").textContent = "Richtig!";
+    document.getElementById("feedbackErgebnis2").style.color = "green";
+  } else {
+    document.getElementById("feedbackErgebnis2").textContent = "Leider nicht korrekt.";
+    document.getElementById("feedbackErgebnis2").style.color = "red";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("eingabe2").addEventListener("input", function() {
+    const val = this.value.trim();
+    if (val === "I") {
+      document.getElementById("feedbackGesucht2").textContent = "Richtig!";
+      document.getElementById("feedbackGesucht2").style.color = "green";
+    } else {
+      document.getElementById("feedbackGesucht2").textContent = "Falsch. Gesucht ist: I";
+      document.getElementById("feedbackGesucht2").style.color = "red";
+    }
+  });
+});
+
+function checkFormel(3) {
+  const feld = document.getElementById("formel3").textContent;
+  if (feld === "U=√(P·R)" || feld === "U=√(R·P)") {
+    document.getElementById("feedbackFormel3").textContent = "Richtig!";
+    document.getElementById("feedbackFormel3").style.color = "green";
+  } else {
+    document.getElementById("feedbackFormel3").innerHTML = "Falsch. <a href='https://www.youtube.com/watch?v=IOdZmEflOR8' target='_blank'>Hier kannst du dein Wissen auffrischen</a>";
+    document.getElementById("feedbackFormel3").style.color = "red";
+  }
+}
+
+function checkErgebnis(3) {
+  const val = document.getElementById("ergebnis3").value.toLowerCase().replace(/\s+/g, '').replace(',', '.');
+  if (val === "42.43" || val === "42.43" || val === "42.4" || val === "42.4") {
+    document.getElementById("feedbackErgebnis3").textContent = "Richtig!";
+    document.getElementById("feedbackErgebnis3").style.color = "green";
+  } else {
+    document.getElementById("feedbackErgebnis3").textContent = "Leider nicht korrekt.";
+    document.getElementById("feedbackErgebnis3").style.color = "red";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("eingabe3").addEventListener("input", function() {
+    const val = this.value.trim();
+    if (val === "U") {
+      document.getElementById("feedbackGesucht3").textContent = "Richtig!";
+      document.getElementById("feedbackGesucht3").style.color = "green";
+    } else {
+      document.getElementById("feedbackGesucht3").textContent = "Falsch. Gesucht ist: U";
+      document.getElementById("feedbackGesucht3").style.color = "red";
+    }
+  });
+});
+
+function checkFormel(4) {
+  const feld = document.getElementById("formel4").textContent;
+  if (feld === "E=U²/R·t" || feld === "E=U^2/R·t") {
+    document.getElementById("feedbackFormel4").textContent = "Richtig!";
+    document.getElementById("feedbackFormel4").style.color = "green";
+  } else {
+    document.getElementById("feedbackFormel4").innerHTML = "Falsch. <a href='https://www.youtube.com/watch?v=pPCdulUiRtI' target='_blank'>Hier kannst du dein Wissen auffrischen</a>";
+    document.getElementById("feedbackFormel4").style.color = "red";
+  }
+}
+
+function checkErgebnis(4) {
+  const val = document.getElementById("ergebnis4").value.toLowerCase().replace(/\s+/g, '').replace(',', '.');
+  if (val === "96" || val === "96j" || val === "96 j" || val === "96joule" || val === "96 joule") {
+    document.getElementById("feedbackErgebnis4").textContent = "Richtig!";
+    document.getElementById("feedbackErgebnis4").style.color = "green";
+  } else {
+    document.getElementById("feedbackErgebnis4").textContent = "Leider nicht korrekt.";
+    document.getElementById("feedbackErgebnis4").style.color = "red";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("eingabe4").addEventListener("input", function() {
+    const val = this.value.trim();
+    if (val === "E") {
+      document.getElementById("feedbackGesucht4").textContent = "Richtig!";
+      document.getElementById("feedbackGesucht4").style.color = "green";
+    } else {
+      document.getElementById("feedbackGesucht4").textContent = "Falsch. Gesucht ist: E";
+      document.getElementById("feedbackGesucht4").style.color = "red";
+    }
+  });
+});
+
+function checkFormel(5) {
+  const feld = document.getElementById("formel5").textContent;
+  if (feld === "R=U²/P" || feld === "R=U^2/P") {
+    document.getElementById("feedbackFormel5").textContent = "Richtig!";
+    document.getElementById("feedbackFormel5").style.color = "green";
+  } else {
+    document.getElementById("feedbackFormel5").innerHTML = "Falsch. <a href='https://www.youtube.com/watch?v=vFtobV1cNAs' target='_blank'>Hier kannst du dein Wissen auffrischen</a>";
+    document.getElementById("feedbackFormel5").style.color = "red";
+  }
+}
+
+function checkErgebnis(5) {
+  const val = document.getElementById("ergebnis5").value.toLowerCase().replace(/\s+/g, '').replace(',', '.');
+  if (val === "4" || val === "4ohm" || val === "4 ohm" || val === "4 Ω") {
+    document.getElementById("feedbackErgebnis5").textContent = "Richtig!";
+    document.getElementById("feedbackErgebnis5").style.color = "green";
+  } else {
+    document.getElementById("feedbackErgebnis5").textContent = "Leider nicht korrekt.";
+    document.getElementById("feedbackErgebnis5").style.color = "red";
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("eingabe5").addEventListener("input", function() {
+    const val = this.value.trim();
+    if (val === "R") {
+      document.getElementById("feedbackGesucht5").textContent = "Richtig!";
+      document.getElementById("feedbackGesucht5").style.color = "green";
+    } else {
+      document.getElementById("feedbackGesucht5").textContent = "Falsch. Gesucht ist: R";
+      document.getElementById("feedbackGesucht5").style.color = "red";
+    }
+  });
+});
+</script>
+</body>
+</html>
